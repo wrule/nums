@@ -14,3 +14,5 @@ console.log(Number(new Date()) - oldTime);
 
 console.log('结束');
 
+const b = nums([1, 2, 3, 4, 5]);
+console.log(b.RSV(3));

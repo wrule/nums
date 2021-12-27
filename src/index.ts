@@ -97,9 +97,18 @@ class Nums {
     const nsize = this.normalSize(size);
     const result = Array(this.Length).fill(0);
     this.nums.forEach((num, index) => {
-      const slice = this.nums.slice(index + 1 - nsize, index + 1);
-      const min = Math.min(...slice);
-      const max = Math.max(...slice);
+      let min = -Infinity, max = Infinity;
+      for (let i = index + 1 - nsize; i < index + 1; ++i) {
+        if (i >= 0) {
+          const current = this.nums[i];
+          if (current > max) {
+            max = current;
+          }
+          if (current < min) {
+            min = current;
+          }
+        }
+      }
       result[index] = (num - min) / (max - min) * 100;
     });
     return nums(result);
