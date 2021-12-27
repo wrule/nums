@@ -131,6 +131,14 @@ class Nums {
     });
     return nums(result);
   }
+
+  public KD() {
+
+  }
+
+  public KDJ() {
+    
+  }
 }
 
 export
