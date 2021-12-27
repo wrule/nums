@@ -40,6 +40,22 @@ class Nums {
     }));
   }
 
+  public MAX(size: number) {
+    const nsize = this.normalSize(size);
+    const result = Array(this.Length).fill(0);
+    let sum = 0;
+    this.nums.forEach((num, index) => {
+      const discardIndex = index - nsize;
+      const length = index >= nsize - 1 ? nsize : index + 1;
+      sum += num;
+      if (discardIndex >= 0) {
+        sum -= this.nums[discardIndex];
+      }
+      result[index] = sum / length;
+    });
+    return nums(result);
+  }
+
   public EMA(size: number) {
     const nsize = this.normalSize(size);
     const weight = 2 / (nsize + 1);
