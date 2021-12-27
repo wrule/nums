@@ -47,8 +47,8 @@ class Nums {
 
   public EMA(size: number) {
     const nsize = this.normalSize(size);
-    const weight = 2 / (nsize + 1);
     const result = Array(this.Length).fill(0);
+    const weight = 2 / (nsize + 1);
     this.nums.forEach((num, index) => {
       let prevEMA = result[index - 1];
       if (prevEMA == null) {
