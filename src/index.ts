@@ -39,6 +39,20 @@ class Nums {
       return sum / diff;
     }));
   }
+
+  public EMA(size: number) {
+    const nsize = this.normalSize(size);
+    const weight = 2 / (nsize + 1);
+    const result: number[] = [];
+    this.nums.forEach((num, index) => {
+      let prevEMA = result[index - 1];
+      if (prevEMA == null) {
+        prevEMA = num;
+      }
+      result.push(num * weight + prevEMA * (1 - weight));
+    });
+    return new Nums(result);
+  }
 }
 
 export
