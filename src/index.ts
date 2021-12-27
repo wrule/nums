@@ -8,6 +8,10 @@ class Nums {
   public get Nums() {
     return this.nums;
   }
+
+  public get Length() {
+    return this.nums.length;
+  }
 }
 
 export
