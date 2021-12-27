@@ -2,6 +2,11 @@
   "name": "nums",
   "version": "0.1.0",
   "main": "dist/index.js",
+  "scripts": {
+    "dev": "node dist/test.js",
+    "watch": "tsc -w",
+    "build": "tsc"
+  },
   "repository": "https://github.com/wrule/nums.git",
   "license": "MIT",
   "private": false
