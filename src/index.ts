@@ -22,6 +22,23 @@ class Nums {
   public avg() {
     return this.sum() / (this.Length || 1);
   }
+
+  public normalSize(
+    size: number,
+  ) {
+    return size < 1 ? 1 : Math.floor(size);
+  }
+
+  public MA(size: number) {
+    const nsize = this.normalSize(size);
+    return nums(this.nums.map((num, index) => {
+      let sum = num, diff = 1;
+      for (; diff < nsize && index - diff >= 0; ++diff) {
+        sum += this.nums[index - diff];
+      }
+      return sum / diff;
+    }));
+  }
 }
 
 export
