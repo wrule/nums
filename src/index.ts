@@ -92,6 +92,12 @@ class Nums {
       MACD: new Nums(MACDNums),
     };
   }
+
+  public RSV(size: number) {
+    const nsize = this.normalSize(size);
+    const result = Array(this.Length).fill(0);
+    return nums(result);
+  }
 }
 
 export
