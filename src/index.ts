@@ -58,6 +58,40 @@ class Nums {
     });
     return new Nums(result);
   }
+
+  public MACD(
+    fast: number,
+    slow: number,
+    size: number,
+  ) {
+    const fastNums = this.EMA(fast).nums;
+    const slowNums = this.EMA(slow).nums;
+    const DIFNums = fastNums.map((num, index) => num - slowNums[index]);
+    const DEANums = new Nums(DIFNums).EMA(size).nums;
+    const MACDNums = DIFNums.map((num, index) => num - DEANums[index]);
+    return {
+      DIF: new Nums(DIFNums),
+      DEA: new Nums(DEANums),
+      MACD: new Nums(MACDNums),
+    };
+  }
+
+  public MACD_MA(
+    fast: number,
+    slow: number,
+    size: number,
+  ) {
+    const fastNums = this.MA(fast).nums;
+    const slowNums = this.MA(slow).nums;
+    const DIFNums = fastNums.map((num, index) => num - slowNums[index]);
+    const DEANums = new Nums(DIFNums).MA(size).nums;
+    const MACDNums = DIFNums.map((num, index) => num - DEANums[index]);
+    return {
+      DIF: new Nums(DIFNums),
+      DEA: new Nums(DEANums),
+      MACD: new Nums(MACDNums),
+    };
+  }
 }
 
 export
