@@ -6,11 +6,8 @@ const dataNums = nums(data);
 
 const oldTime = Number(new Date());
 for (let i = 0; i < 120; ++i) {
-  console.log(i);
   for (let j = 0; j < 120; ++j) {
-    for (let k = 0; k < 120; ++k) {
-      const a = dataNums.MACD_MA(i, j, k);
-    }
+    const a = dataNums.RSV(10);
   }
 }
 console.log(Number(new Date()) - oldTime);
