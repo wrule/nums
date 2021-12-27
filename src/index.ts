@@ -20,7 +20,7 @@ class Nums {
   }
 
   public avg() {
-    return this.sum() / this.Length;
+    return this.sum() / (this.Length || 1);
   }
 }
 
