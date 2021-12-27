@@ -6,9 +6,11 @@ const dataNums = nums(data);
 
 const oldTime = Number(new Date());
 for (let i = 0; i < 120; ++i) {
+  console.log(i);
   for (let j = 0; j < 120; ++j) {
-    const a = dataNums.MA(i);
-    const b = dataNums.MA(j);
+    for (let k = 0; k < 120; ++k) {
+      const a = dataNums.MACD(i, j, k);
+    }
   }
 }
 console.log(Number(new Date()) - oldTime);
