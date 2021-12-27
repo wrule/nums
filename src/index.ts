@@ -96,6 +96,12 @@ class Nums {
   public RSV(size: number) {
     const nsize = this.normalSize(size);
     const result = Array(this.Length).fill(0);
+    this.nums.forEach((num, index) => {
+      const slice = this.nums.slice(index + 1 - nsize, index + 1);
+      const min = Math.min(...slice);
+      const max = Math.max(...slice);
+      result[index] = (num - min) / (max - min) * 100;
+    });
     return nums(result);
   }
 }
