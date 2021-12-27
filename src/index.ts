@@ -12,6 +12,16 @@ class Nums {
   public get Length() {
     return this.nums.length;
   }
+
+  public sum() {
+    let result = 0;
+    this.nums.forEach((num) => result += num);
+    return result;
+  }
+
+  public avg() {
+    return this.sum() / this.Length;
+  }
 }
 
 export
