@@ -43,13 +43,13 @@ class Nums {
   public EMA(size: number) {
     const nsize = this.normalSize(size);
     const weight = 2 / (nsize + 1);
-    const result: number[] = [];
+    const result = Array(this.Length).fill(0);
     this.nums.forEach((num, index) => {
       let prevEMA = result[index - 1];
       if (prevEMA == null) {
         prevEMA = num;
       }
-      result.push(num * weight + prevEMA * (1 - weight));
+      result[index] = num * weight + prevEMA * (1 - weight);
     });
     return new Nums(result);
   }
