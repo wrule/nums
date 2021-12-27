@@ -7,10 +7,11 @@ const dataNums = nums(data);
 const oldTime = Number(new Date());
 for (let i = 0; i < 120; ++i) {
   for (let j = 0; j < 120; ++j) {
-    const a = dataNums.MAX(i);
-    const b = dataNums.MAX(j);
+    const a = dataNums.MA(i);
+    const b = dataNums.MA(j);
   }
 }
 console.log(Number(new Date()) - oldTime);
 
 console.log('结束');
+

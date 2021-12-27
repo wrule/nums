@@ -31,22 +31,11 @@ class Nums {
 
   public MA(size: number) {
     const nsize = this.normalSize(size);
-    return nums(this.nums.map((num, index) => {
-      let sum = num, diff = 1;
-      for (; diff < nsize && index - diff >= 0; ++diff) {
-        sum += this.nums[index - diff];
-      }
-      return sum / diff;
-    }));
-  }
-
-  public MAX(size: number) {
-    const nsize = this.normalSize(size);
     const result = Array(this.Length).fill(0);
     let sum = 0;
     this.nums.forEach((num, index) => {
       const discardIndex = index - nsize;
-      const length = index >= nsize - 1 ? nsize : index + 1;
+      const length = index < nsize - 1 ? index + 1 : nsize;
       sum += num;
       if (discardIndex >= 0) {
         sum -= this.nums[discardIndex];
