@@ -136,8 +136,20 @@ class Nums {
 
   }
 
-  public KDJ() {
-    
+  public KDJ(
+    rsvSize: number,
+    ma1: number,
+    ma2: number,
+  ) {
+    const rsvNums = this.RSV(rsvSize);
+    const K = rsvNums.EMA(ma1);
+    const D = K.EMA(ma2);
+    const J = nums(
+      K.nums.map((num, index) => num * 3 - D.nums[index] * 2)
+    );
+    return {
+      K, D, J,
+    };
   }
 }
 
