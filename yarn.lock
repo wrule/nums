@@ -6,8 +6,3 @@
   version "17.0.5"
   resolved "http://npm.perfma-inc.net:80/@types%2fnode/-/node-17.0.5.tgz#57ca67ec4e57ad9e4ef5a6bab48a15387a1c83e0"
   integrity sha512-w3mrvNXLeDYV1GKTZorGJQivK6XLCoGwpnyJFbJVK/aTBQUxOCaa/GlFAAN3OTDFcb7h5tiFG+YXCO2By+riZw==
-
-hxc3-indicator-formula@^1.0.9:
-  version "1.0.9"
-  resolved "http://npm.perfma-inc.net:80/hxc3-indicator-formula/-/hxc3-indicator-formula-1.0.9.tgz#89b1eaa05ea8ec3766d91be99d3b67ae965f534e"
-  integrity sha1-ibHqoF6o7Ddm2RvpnTtnrpZfU04=
