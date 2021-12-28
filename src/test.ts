@@ -26,5 +26,17 @@ const b = nums([
   40.39, 40.95, 45.14, 49.51, 45.65,
   46.43, 45.66, 46.78,
 ]);
-// console.log(b.RSV(9));
-// console.log(b.KDJ(9, 3, 3).K);
+
+import { IndicatorFormula } from 'hxc3-indicator-formula';
+
+const data2 = [
+  {"t": "20150721", "o": 76.58, "a": 83.25, "i": 76.22, "c": 82.54, "n": 28291511 },
+  {"t": "20150831", "o": 79.59, "a": 80.99, "i": 58, "c": 66.12, "n": 349649240 },
+  {"t": "20150929", "o": 64.38, "a": 68.08, "i": 57.2, "c": 57.82, "n": 401172600 },
+  {"t": "20151030", "o": 66.04, "a": 84.44, "i": 65.96, "c": 83.83, "n": 314092650 },
+];
+
+const KDJ = IndicatorFormula.getClass('kdj');
+const kdjIndicator = new KDJ();
+const result = kdjIndicator.calculate(data2);
+console.log(result);

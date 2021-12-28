@@ -11,6 +11,7 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "@types/node": "^17.0.5"
+    "@types/node": "^17.0.5",
+    "hxc3-indicator-formula": "^1.0.9"
   }
 }
