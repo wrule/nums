@@ -133,6 +133,9 @@ class Nums {
     MASizeD: number,
   ) {
     const RSVNums = this.RSV(minNums, maxNums, RSVSize);
+    const K = RSVNums.EMA(MASizeK, 100, 1 / MASizeK);
+    const D = K.EMA(MASizeD, 100, 1 / MASizeD);
+    return { K, D };
   }
 }
 
