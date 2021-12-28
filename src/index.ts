@@ -165,7 +165,12 @@ class Nums {
     KSize: number,
     DSize: number,
   ) {
-    const { K, D, J } = this.KDJ(minNums, maxNums, RSVSize, KSize, DSize);
+    let { D } = this.KDJ(minNums, maxNums, RSVSize, KSize, DSize);
+    const K = D;
+    D = K.EMA(DSize, 100, 1 / DSize);
+    const J = nums(
+      K.nums.map((num, index) => num * 3 - D.nums[index] * 2)
+    );
     return { K, D, J };
   }
 }
