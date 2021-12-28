@@ -173,6 +173,10 @@ class Nums {
     );
     return { K, D, J };
   }
+
+  public RSI() {
+    
+  }
 }
 
 export
