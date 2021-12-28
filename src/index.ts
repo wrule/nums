@@ -129,12 +129,12 @@ class Nums {
     minNums: Nums,
     maxNums: Nums,
     RSVSize: number,
-    MASizeK: number,
-    MASizeD: number,
+    KSize: number,
+    DSize: number,
   ) {
     const RSVNums = this.RSV(minNums, maxNums, RSVSize);
-    const K = RSVNums.EMA(MASizeK, 100, 1 / MASizeK);
-    const D = K.EMA(MASizeD, 100, 1 / MASizeD);
+    const K = RSVNums.EMA(KSize, 100, 1 / DSize);
+    const D = K.EMA(DSize, 100, 1 / DSize);
     return { K, D };
   }
 
@@ -142,17 +142,19 @@ class Nums {
     minNums: Nums,
     maxNums: Nums,
     RSVSize: number,
-    MASizeK: number,
-    MASizeD: number,
+    KSize: number,
+    DSize: number,
   ) {
     const { K, D } = this.KD(
       minNums,
       maxNums,
       RSVSize,
-      MASizeK,
-      MASizeD,
+      KSize,
+      DSize,
     );
-    const J = nums(K.nums.map((num, index) => num * 3 - D.nums[index] * 2));
+    const J = nums(
+      K.nums.map((num, index) => num * 3 - D.nums[index] * 2)
+    );
     return { K, D, J };
   }
 }
