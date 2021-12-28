@@ -24,7 +24,8 @@ const ENS = [
 
 const minNums = nums(ENS.map((item) => item[2]));
 const maxNums = nums(ENS.map((item) => item[1]));
-const closeNums = nums(ENS.map((item) => item[3]));
 
-const { K, D, J } = closeNums.KDJ(minNums, maxNums, 9, 3, 3);
-console.log(J);
+const openNums  = nums([3, 4, 5, 8, 12, 33, 30, 15, 15]);
+const closeNums = nums([4, 5, 8, 12, 33, 30, 15, 15, 16]);
+const result = closeNums.RS(openNums, 2);
+console.log(result);

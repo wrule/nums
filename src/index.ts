@@ -194,7 +194,8 @@ class Nums {
           fallSum += -diff;
         }
       }
-      result[index] = riseSum / fallSum * 100;
+      console.log(riseSum, fallSum);
+      result[index] = (riseSum / nsize) / (fallSum / nsize) * 100;
     });
     return nums(result);
   }
