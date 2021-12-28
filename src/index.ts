@@ -132,6 +132,35 @@ class Nums {
     return nums(result);
   }
 
+  public RSVS(
+    minNums: Nums,
+    maxNums: Nums,
+    size: number,
+  ) {
+    const nsize = this.normalSize(size);
+    const result = Array(this.Length).fill(0);
+    this.nums.forEach((num, index) => {
+      let startIndex = index + 1 - nsize;
+      if (startIndex < 0) {
+        startIndex = 0;
+      }
+      let min = minNums.nums[startIndex];
+      let max = maxNums.nums[startIndex];
+      for (let i = startIndex + 1; i < index + 1; ++i) {
+        const currentMinNum = minNums.nums[i];
+        const currentMaxNum = maxNums.nums[i];
+        if (currentMinNum < min) {
+          min = currentMinNum;
+        }
+        if (currentMaxNum > max) {
+          max = currentMaxNum;
+        }
+      }
+      result[index] = (num - min) / ((max - min) || 1) * 100;
+    });
+    return nums(result);
+  }
+
   public KD() {
     // 33.33 22.22 14.81
   }
