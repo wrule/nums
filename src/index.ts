@@ -133,7 +133,7 @@ class Nums {
   }
 
   public KD() {
-
+    // 33.33 22.22 14.81
   }
 
   public KDJ(

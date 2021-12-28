@@ -26,4 +26,5 @@ const b = nums([
   40.39, 40.95, 45.14, 49.51, 45.65,
   46.43, 45.66, 46.78,
 ]);
-console.log(b.MA(8));
+// console.log(b.RSV(9));
+// console.log(b.KDJ(9, 3, 3).K);
