@@ -174,16 +174,40 @@ class Nums {
     return { K, D, J };
   }
 
-  public RSI() {
-
-  }
-
   public RS(
-    minNums: Nums,
-    maxNums: Nums,
+    openNums: Nums,
     size: number,
   ) {
+    const nsize = this.normalSize(size);
+    const result = Array(this.Length).fill(0);
+    this.nums.forEach((num, index) => {
+      let startIndex = index + 1 - nsize;
+      if (startIndex < 0) {
+        startIndex = 0;
+      }
+      let riseSum = 0, fallSum = 0;
+      for (let i = startIndex; i < index + 1; ++i) {
+        const diff = this.nums[i] - openNums.nums[i];
+        if (diff > 0) {
+          riseSum += diff;
+        } else {
+          fallSum += -diff;
+        }
+      }
+      result[index] = riseSum / fallSum * 100;
+    });
+    return nums(result);
+  }
 
+  public RSI(
+    size: number,
+  ) {
+    const nsize = this.normalSize(size);
+    const result = Array(this.Length).fill(0);
+    this.nums.forEach((num, index) => {
+      result[index] = 0;
+    });
+    return nums(result);
   }
 }
 
