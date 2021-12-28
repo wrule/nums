@@ -157,6 +157,17 @@ class Nums {
     );
     return { K, D, J };
   }
+
+  public SKDJ(
+    minNums: Nums,
+    maxNums: Nums,
+    RSVSize: number,
+    KSize: number,
+    DSize: number,
+  ) {
+    const { K, D, J } = this.KDJ(minNums, maxNums, RSVSize, KSize, DSize);
+    return { K, D, J };
+  }
 }
 
 export

@@ -14,8 +14,6 @@ const b = nums([
   46.43, 45.66, 46.78,
 ]);
 
-// console.log(b.RSV(9));
-
 const ENS = [
   [43.66, 120.00, 43.66, 73.82],
   [73.87, 86.76, 55.06, 55.31],
@@ -23,18 +21,10 @@ const ENS = [
   [54.60, 63.58, 48.00, 55.57],
   [55.58, 62.49, 53.20, 56.21],
 ];
-const ENSKDJ = [
-  // [100, 100]
-  // [79.84, 93.28],
-  [33.33, 11.11], // RSV 100
-  [22.22, 14.81], // RSV 0
-  [14.81, 14.81], // RSV -0.0100
-  [11.47, 13.70], // RSV 4.7900
-  [10.36, 12.58], // RSV 8.1400
-];
 
-function getRSV(k: number, prevK: number) {
-  return ((k - (2 / 3) * prevK) / (1 / 3)).toFixed(4);
-}
+const minNums = nums(ENS.map((item) => item[2]));
+const maxNums = nums(ENS.map((item) => item[1]));
+const closeNums = nums(ENS.map((item) => item[3]));
 
-console.log(getRSV(10.36, 11.47));
+const { K, D, J } = closeNums.KDJ(minNums, maxNums, 9, 3, 3);
+console.log(J);
