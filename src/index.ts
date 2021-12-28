@@ -93,46 +93,7 @@ class Nums {
     };
   }
 
-  public RSV(size: number) {
-    const nsize = this.normalSize(size);
-    const result = Array(this.Length).fill(0);
-    this.nums.forEach((num, index) => {
-      let startIndex = index + 1 - nsize;
-      if (startIndex < 0) {
-        startIndex = 0;
-      }
-      const slice = this.nums.slice(startIndex, index + 1);
-      const min = Math.min(...slice);
-      const max = Math.max(...slice);
-      result[index] = (num - min) / ((max - min) || 1) * 100;
-    });
-    return nums(result);
-  }
-
-  public RSVX(size: number) {
-    const nsize = this.normalSize(size);
-    const result = Array(this.Length).fill(0);
-    this.nums.forEach((num, index) => {
-      let min = Infinity, max = -Infinity;
-      let startIndex = index + 1 - nsize;
-      if (startIndex < 0) {
-        startIndex = 0;
-      }
-      for (let i = startIndex; i < index + 1; ++i) {
-        const currentNum = this.nums[i];
-        if (currentNum < min) {
-          min = currentNum;
-        }
-        if (currentNum > max) {
-          max = currentNum;
-        }
-      }
-      result[index] = (num - min) / ((max - min) || 1) * 100;
-    });
-    return nums(result);
-  }
-
-  public RSVS(
+  public RSV(
     minNums: Nums,
     maxNums: Nums,
     size: number,
