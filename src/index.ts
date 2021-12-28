@@ -137,6 +137,24 @@ class Nums {
     const D = K.EMA(MASizeD, 100, 1 / MASizeD);
     return { K, D };
   }
+
+  public KDJ(
+    minNums: Nums,
+    maxNums: Nums,
+    RSVSize: number,
+    MASizeK: number,
+    MASizeD: number,
+  ) {
+    const { K, D } = this.KD(
+      minNums,
+      maxNums,
+      RSVSize,
+      MASizeK,
+      MASizeD,
+    );
+    const J = nums(K.nums.map((num, index) => num * 3 - D.nums[index] * 2));
+    return { K, D, J };
+  }
 }
 
 export
