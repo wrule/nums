@@ -45,10 +45,14 @@ class Nums {
     return nums(result);
   }
 
-  public EMA(size: number) {
+  public EMA(
+    size: number,
+    EMAInit?: number,
+    WeightInit?: number,
+  ) {
     const nsize = this.normalSize(size);
     const result = Array(this.Length).fill(0);
-    const weight = 2 / (nsize + 1);
+    const weight = WeightInit != null ? WeightInit : 2 / (nsize + 1);
     this.nums.forEach((num, index) => {
       let prevEMA = result[index - 1];
       if (prevEMA == null) {
