@@ -175,7 +175,15 @@ class Nums {
   }
 
   public RSI() {
-    
+
+  }
+
+  public RS(
+    minNums: Nums,
+    maxNums: Nums,
+    size: number,
+  ) {
+
   }
 }
 
