@@ -221,9 +221,18 @@ class Nums {
   ) {
     const nsize = this.normalSize(size);
     const result = Array(this.Length).fill(0);
-    this.nums.forEach((num, index) => {
-      result[index] = 0;
-    });
+    const riseData = Array(this.Length).fill(0);
+    const fallData = Array(this.Length).fill(0);
+    for (let i = 1; i < this.Length; ++i) {
+      const diff = this.nums[i] - this.nums[i - 1];
+      if (diff > 0) {
+        riseData[i] = diff;
+      } else {
+        fallData[i] = -diff;
+      }
+    }
+    const riseNums = nums(riseData).RMA(14);
+    const fallNums = nums(riseData).RMA(14);
     return nums(result);
   }
 }
