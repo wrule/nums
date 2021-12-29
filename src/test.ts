@@ -29,3 +29,9 @@ const openNums  = nums([3, 4, 5, 8, 12, 33, 30, 15, 15]);
 const closeNums = nums([4, 5, 8, 12, 33, 30, 15, 15, 16]);
 const result = closeNums.RS(openNums, 2);
 console.log(result);
+
+const tests = [
+  [46.78, 46.83, 41.39, 42.06],
+  [42.06, 47.13, 39.86, 40.97],
+  [40.92, 53.00, 40.46, 50.80],
+];

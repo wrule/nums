@@ -216,3 +216,7 @@ export
 function nums(nums: number[] = []) {
   return new Nums(nums);
 }
+
+
+// 100 - 100 / (1 + A / B)
+// A / (A + B) * 100
