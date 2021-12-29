@@ -62,6 +62,21 @@ class Nums {
     return new Nums(result);
   }
 
+  public RMA(
+    size: number,
+    RMAInit?: number,
+  ) {
+    const nsize = this.normalSize(size);
+    const result = Array(this.Length).fill(0);
+    let prevRMA = RMAInit != null ? RMAInit : this.nums[0];
+    this.nums.forEach((num, index) => {
+      const newRMA = (prevRMA * (nsize - 1) + num) / nsize;
+      result[index] = newRMA;
+      prevRMA = newRMA;
+    });
+    return nums(result);
+  }
+
   public MACD(
     fast: number,
     slow: number,
