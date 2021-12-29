@@ -13,12 +13,20 @@ const ENS = nums([
   40.39, 40.95, 45.14, 49.51, 45.65,
   46.43, 45.66, 46.78,
 ]);
-// 0, 0, 0, 8.76
-console.log('你好，世界');
-const b = [73.82, 55.31, 54.65, 55.57];
 
 function RSI(a: number, b: number) {
   return a / (a + (-b)) * 100;
 }
 
-console.log(RSI(55.57 - 54.65, (54.65 - 55.31) + (55.31 - 73.82)));
+console.log(ENS.RMA(3));
+const k = [73.82, 55.31, 54.65, 55.57]; // 61.26 59.36
+
+function prevRMA(price: number, rma: number) {
+  const a = rma * 3;
+  const b = a - price;
+  const c = b / 2;
+  return c;
+}
+
+console.log(prevRMA(54.65, 61.255));
+
