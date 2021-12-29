@@ -28,10 +28,53 @@ const maxNums = nums(ENS.map((item) => item[1]));
 const openNums  = nums([3, 4, 5, 8, 12, 33, 30, 15, 15]);
 const closeNums = nums([4, 5, 8, 12, 33, 30, 15, 15, 16]);
 const result = closeNums.RS(openNums, 2);
-console.log(result);
+// console.log(result);
 
 const tests = [
   [46.78, 46.83, 41.39, 42.06],
   [42.06, 47.13, 39.86, 40.97],
   [40.92, 53.00, 40.46, 50.80],
 ];
+// 20.44
+// 16.07
+// 82.70
+
+function kkk(a1: number, a2: number, b1: number, b2: number) {
+  const c = [a1 - a2, b1 - b2];
+  let rise = 0;
+  let fall = 0;
+  c.forEach((num) => {
+    if (num > 0) {
+      rise += num;
+    } else {
+      fall += -num;
+    }
+  });
+  return rise / (rise + fall) * 100;
+}
+
+const numList = [
+  ...tests[0],
+  ...tests[1],
+  ...tests[2],
+];
+
+console.log(kkk(39.86, 42.06, 47.13, 40.97));
+
+for (let a = 0; a < numList.length; ++a) {
+  for (let b = 0; b < numList.length; ++b) {
+    for (let c = 0; c < numList.length; ++c) {
+      for (let d = 0; d < numList.length; ++d) {
+        let r = kkk(numList[a], numList[b], numList[c], numList[d]);
+        if (r > 82.68 && r < 82.78) {
+          console.log(numList[a], numList[b], numList[c], numList[d]);
+          console.log(r.toString());
+        }
+      }
+    }
+  }
+}
+
+// let r = kkk(40.97, 42.06, 50.80, 40.92);
+// let r = kkk(53.00, 40.46, 47.13, 39.86);
+// console.log(r);
