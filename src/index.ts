@@ -220,7 +220,6 @@ class Nums {
     size: number,
   ) {
     const nsize = this.normalSize(size);
-    const result = Array(this.Length).fill(0);
     const riseData = Array(this.Length).fill(0);
     const fallData = Array(this.Length).fill(0);
     for (let i = 1; i < this.Length; ++i) {
@@ -231,8 +230,12 @@ class Nums {
         fallData[i] = -diff;
       }
     }
-    const riseNums = nums(riseData).RMA(14);
-    const fallNums = nums(riseData).RMA(14);
+    const riseNums = nums(riseData).RMA(nsize);
+    const fallNums = nums(fallData).RMA(nsize);
+    const result = riseNums.nums.map((rise, index) => {
+      const fall = fallNums.nums[index];
+      return rise / (rise + fall) * 100;
+    });
     return nums(result);
   }
 }

@@ -14,19 +14,12 @@ const ENS = nums([
   46.43, 45.66, 46.78,
 ]);
 
-function RSI(a: number, b: number) {
-  return a / (a + (-b)) * 100;
-}
+// console.log(ENS.RMA(2));
+// 0 0 0 0.92 0.64 0
+// 0 0 0 0.46 0.55 0.28
 
-console.log(ENS.RMA(3));
-const k = [73.82, 55.31, 54.65, 55.57]; // 61.26 59.36
+// 0  18.51 0.66  0     0     0.44
+// 0  0     9.58  4.79  2.40  1.42
 
-function prevRMA(price: number, rma: number) {
-  const a = rma * 3;
-  const b = a - price;
-  const c = b / 2;
-  return c;
-}
-
-console.log(prevRMA(54.65, 61.255));
-
+const testNums = nums([0, 18.51, 0.66, 0, 0, 0.44]);
+console.log(testNums.RMA(2));
