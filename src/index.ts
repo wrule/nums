@@ -210,7 +210,6 @@ class Nums {
           fallSum += -diff;
         }
       }
-      // console.log(riseSum, fallSum);
       result[index] = (riseSum / nsize) / (fallSum / nsize) * 100;
     });
     return nums(result);
@@ -234,7 +233,7 @@ class Nums {
     const fallNums = nums(fallData).RMA(nsize);
     const result = riseNums.nums.map((rise, index) => {
       const fall = fallNums.nums[index];
-      return rise / (rise + fall) * 100;
+      return rise / ((rise + fall) || 1) * 100;
     });
     return nums(result);
   }
