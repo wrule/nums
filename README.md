@@ -7,3 +7,8 @@
 ```
 $ npm install @wrule/nums
 ```
+
+```js
+nums([1, 2, 3]).MA(2)
+// [ 1, 1.5, 2.5 ]
+```

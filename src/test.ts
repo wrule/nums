@@ -14,4 +14,6 @@ const ENS = nums([
   46.43, 45.66, 46.78,
 ]);
 
-console.log(ENS.RSI(30));
+// console.log(ENS.RSI(30));
+
+console.log(nums([1, 2, 3]).MA(2));
