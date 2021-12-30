@@ -244,8 +244,10 @@ class Nums {
   public SRSI(
     size: number,
     RMAInit?: number,
+    RSISize?: number,
   ) {
-    const RSINums = this.RSI(size, RMAInit);
+    const RSINums = this.RSI(RSISize != null ? RSISize : size, RMAInit);
+    return RSINums.RSV_FLAT(size);
   }
 
   // public ROC() {
