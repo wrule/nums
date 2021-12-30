@@ -217,6 +217,7 @@ class Nums {
 
   public RSI(
     size: number,
+    RMAInit?: number,
   ) {
     const nsize = this.normalSize(size);
     const riseData = Array(this.Length).fill(0);
@@ -229,8 +230,8 @@ class Nums {
         fallData[i] = -diff;
       }
     }
-    const riseNums = nums(riseData).RMA(nsize);
-    const fallNums = nums(fallData).RMA(nsize);
+    const riseNums = nums(riseData).RMA(nsize, RMAInit);
+    const fallNums = nums(fallData).RMA(nsize, RMAInit);
     const result = riseNums.nums.map((rise, index) => {
       const fall = fallNums.nums[index];
       return rise / ((rise + fall) || 1) * 100;
