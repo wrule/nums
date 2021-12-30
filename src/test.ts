@@ -16,4 +16,4 @@ const ENS = nums([
 
 // console.log(ENS.RSI(30));
 
-console.log(nums([1, 2, 3]).MA(2));
+console.log(nums([1, 2, 3]).MACD(2, 3, 2));
