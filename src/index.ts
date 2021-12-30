@@ -70,7 +70,7 @@ class Nums {
     const result = Array(this.Length).fill(0);
     let prevRMA = RMAInit != null ? RMAInit : this.nums[0];
     this.nums.forEach((num, index) => {
-      const dsize = index >= nsize - 1 ? nsize : index + 1;
+      const dsize = index >= nsize ? nsize : (index || 1);
       const newRMA = (prevRMA * (dsize - 1) + num) / dsize;
       result[index] = newRMA;
       prevRMA = newRMA;

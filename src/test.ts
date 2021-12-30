@@ -19,7 +19,7 @@ const ENS = nums([
 // 0 0 0 0.46 0.55 0.28
 
 // n  18.51 0.66  0     0     0.44
-// 0  0     9.58  4.79  2.40  1.42
+// 0  18.51 9.58  4.79  2.40  1.42
 
 const testNums = nums([0, 18.51, 0.66, 0, 0, 0.44]);
-console.log(testNums.RMA(2));
+console.log(testNums.RMA(4));
