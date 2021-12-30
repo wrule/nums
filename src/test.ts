@@ -15,4 +15,3 @@ const ENS = nums([
 ]);
 
 console.log(ENS.RSI(30));
-
