@@ -14,10 +14,4 @@ const ENS = nums([
   46.43, 45.66, 46.78,
 ]);
 
-// 0  18.51 0.66  0     0     0.44
-// 0  18.51 9.58  4.79  2.40  1.42
-
-const testNums = nums([0, 18.51, 0.66, 0, 0, 0.44]);
-console.log(testNums.RMA(2));
-console.log(ENS.RSI(2));
-const rise = 0.46, fall = 4.7925;
+console.log(ENS.RSI(20));
