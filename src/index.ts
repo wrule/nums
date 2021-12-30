@@ -141,6 +141,33 @@ class Nums {
     return nums(result);
   }
 
+  public RSV_FLAT(
+    size: number,
+  ) {
+    const nsize = this.normalSize(size);
+    const result = Array(this.Length).fill(0);
+    this.nums.forEach((num, index) => {
+      let startIndex = index + 1 - nsize;
+      if (startIndex < 0) {
+        startIndex = 0;
+      }
+      let min = this.nums[startIndex];
+      let max = this.nums[startIndex];
+      for (let i = startIndex + 1; i < index + 1; ++i) {
+        const currentMinNum = this.nums[i];
+        const currentMaxNum = this.nums[i];
+        if (currentMinNum < min) {
+          min = currentMinNum;
+        }
+        if (currentMaxNum > max) {
+          max = currentMaxNum;
+        }
+      }
+      result[index] = (num - min) / ((max - min) || 1) * 100;
+    });
+    return nums(result);
+  }
+
   public KD(
     minNums: Nums,
     maxNums: Nums,
@@ -214,9 +241,12 @@ class Nums {
     return nums(result);
   }
 
-  // public SRSI() {
-
-  // }
+  public SRSI(
+    size: number,
+    RMAInit?: number,
+  ) {
+    const RSINums = this.RSI(size, RMAInit);
+  }
 
   // public ROC() {
 
