@@ -55,7 +55,12 @@ class Nums {
     const weight = WeightInit != null ? WeightInit : 2 / (nsize + 1);
     let prevEMA = EMAInit != null ? EMAInit : this.nums[0];
     this.nums.forEach((num, index) => {
-      const newEMA = num * weight + prevEMA * (1 - weight);
+      let newEMA = 0;
+      if (index >= nsize) {
+        newEMA = num * weight + prevEMA * (1 - weight);
+      } else {
+        newEMA = (num + prevEMA * index) / (index + 1);
+      }
       result[index] = newEMA;
       prevEMA = newEMA;
     });

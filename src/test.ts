@@ -17,4 +17,4 @@ const ENS = nums([
 // na   64.57  57.96 56.37 56.26
 // 1/1  1/2    2/3
 // 61.26 58.42 57.31
-console.log(ENS.EMA(3));
+console.log(ENS.EMA(15));
