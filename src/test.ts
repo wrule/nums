@@ -14,8 +14,4 @@ const ENS = nums([
   46.43, 45.66, 46.78,
 ]);
 
-const minNums = nums([1, 2, 3]);
-const closeNums = nums([2, 3, 4]);
-const maxNums = nums([3, 4, 5]);
-const a = closeNums.KDJ(minNums, maxNums, 9, 3, 3);
-console.log(a);
+console.log(ENS.EMA(2));
