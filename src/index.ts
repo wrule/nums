@@ -185,12 +185,21 @@ class Nums {
     return nums(result);
   }
 
+  /**
+   * KD指标
+   * @param minNums 
+   * @param maxNums 
+   * @param RSVSize 
+   * @param KSize 
+   * @param DSize 
+   * @returns 
+   */
   public KD(
     minNums: Nums,
     maxNums: Nums,
-    RSVSize: number,
-    KSize: number,
-    DSize: number,
+    RSVSize: number = 9,
+    KSize: number = 3,
+    DSize: number = 3,
   ) {
     const RSVNums = this.RSV(minNums, maxNums, RSVSize);
     const K = RSVNums.EMA(KSize, 100, 1 / DSize);
