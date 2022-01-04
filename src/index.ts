@@ -47,20 +47,15 @@ class Nums {
 
   public EMA(
     size: number,
-    EMAInit?: number,
-    WeightInit?: number,
+    smooth: number = 2,
+    a?: number,
   ) {
     const nsize = this.normalSize(size);
     const result = Array(this.Length).fill(0);
-    const weight = WeightInit != null ? WeightInit : 2 / (nsize + 1);
-    let prevEMA = EMAInit != null ? EMAInit : this.nums[0];
+    let prevEMA = this.nums[0];
     this.nums.forEach((num, index) => {
-      let newEMA = 0;
-      if (index >= nsize) {
-        newEMA = num * weight + prevEMA * (1 - weight);
-      } else {
-        newEMA = (num + prevEMA * index) / (index + 1);
-      }
+      const weight = index >= nsize ? smooth / (nsize + 1) : 1 / (index + 1);
+      const newEMA = num * weight + prevEMA * (1 - weight);
       result[index] = newEMA;
       prevEMA = newEMA;
     });
