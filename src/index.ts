@@ -86,9 +86,7 @@ class Nums {
     const fastNums = this.EMA(fast).nums;
     const slowNums = this.EMA(slow).nums;
     const DIFNums = fastNums.map((num, index) => num - slowNums[index]);
-    console.log(DIFNums);
     const DEANums = new Nums(DIFNums).EMA(size).nums;
-    console.log(DEANums);
     const MACDNums = DIFNums.map((num, index) => num - DEANums[index]);
     return {
       DIF: new Nums(DIFNums),
