@@ -117,6 +117,13 @@ class Nums {
     };
   }
 
+  /**
+   * 未成熟随机值
+   * @param minNums 
+   * @param maxNums 
+   * @param size 
+   * @returns 
+   */
   public RSV(
     minNums: Nums,
     maxNums: Nums,
@@ -146,6 +153,11 @@ class Nums {
     return nums(result);
   }
 
+  /**
+   * 未成熟随机值（扁平）
+   * @param size 
+   * @returns 
+   */
   public RSV_FLAT(
     size: number,
   ) {
