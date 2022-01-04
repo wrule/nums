@@ -48,16 +48,21 @@ class Nums {
   public EMA(
     size: number,
     smooth: number = 2,
-    a?: number,
+    skip: number = 0,
   ) {
     const nsize = this.normalSize(size);
     const result = Array(this.Length).fill(0);
     let prevEMA = this.nums[0];
     this.nums.forEach((num, index) => {
-      const weight = index >= nsize ? smooth / (nsize + 1) : 1 / (index + 1);
-      const newEMA = num * weight + prevEMA * (1 - weight);
-      result[index] = newEMA;
-      prevEMA = newEMA;
+      if (index >= skip) {
+        const nindex = index - skip;
+        const weight = nindex >= nsize ? smooth / (nsize + 1) : 1 / (nindex + 1);
+        const newEMA = num * weight + prevEMA * (1 - weight);
+        result[index] = newEMA;
+        prevEMA = newEMA;
+      } else {
+        result[index] = num;
+      }
     });
     return new Nums(result);
   }
@@ -86,7 +91,7 @@ class Nums {
     const fastNums = this.EMA(fast).nums;
     const slowNums = this.EMA(slow).nums;
     const DIFNums = fastNums.map((num, index) => num - slowNums[index]);
-    const DEANums = new Nums(DIFNums).EMA(size).nums;
+    const DEANums = new Nums(DIFNums).EMA(size, 2, slow - 1).nums;
     const MACDNums = DIFNums.map((num, index) => num - DEANums[index]);
     return {
       DIF: new Nums(DIFNums),
