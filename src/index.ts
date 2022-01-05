@@ -85,6 +85,13 @@ class Nums {
     return nums(result);
   }
 
+  /**
+   * 异同平滑平均（与TradingView一致）
+   * @param fast 快尺度
+   * @param slow 慢尺度
+   * @param smooth 平滑
+   * @returns DIF，DEA，MACD
+   */
   public MACD(
     fast: number,
     slow: number,
@@ -103,6 +110,13 @@ class Nums {
     };
   }
 
+  /**
+   * 异同平滑平均（纯EMA）
+   * @param fast 快尺度
+   * @param slow 慢尺度
+   * @param smooth 平滑
+   * @returns DIF，DEA，MACD
+   */
   public MACD_EMA(
     fast: number,
     slow: number,
@@ -120,6 +134,13 @@ class Nums {
     };
   }
 
+  /**
+   * 异同平滑平均（纯MA）
+   * @param fast 快尺度
+   * @param slow 慢尺度
+   * @param smooth 平滑
+   * @returns DIF，DEA，MACD
+   */
   public MACD_MA(
     fast: number,
     slow: number,
