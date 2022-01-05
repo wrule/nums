@@ -47,6 +47,12 @@ class Nums {
     return nums(result);
   }
 
+  /**
+   * 指数移动平均
+   * @param size 尺度
+   * @param smooth 平滑
+   * @returns 结果Nums
+   */
   public EMA(
     size: number,
     smooth: number = 2,
