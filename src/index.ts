@@ -54,18 +54,14 @@ class Nums {
   /**
    * 指数移动平均
    * @param size 尺度
-   * @param smooth 平滑
    * @returns 结果Nums
    */
-  public EMA(
-    size: number,
-    smooth: number = 2,
-  ) {
+  public EMA(size: number) {
     const nsize = this.normalSize(size);
     const result = Array(this.Length).fill(0);
     let prevEMA = this.nums[0];
     this.nums.forEach((num, index) => {
-      const weight = index >= nsize ? smooth / (nsize + 1) : 1 / (index + 1);
+      const weight = index >= nsize ? 2 / (nsize + 1) : 1 / (index + 1);
       const newEMA = num * weight + prevEMA * (1 - weight);
       result[index] = newEMA;
       prevEMA = newEMA;
