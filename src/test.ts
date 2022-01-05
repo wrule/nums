@@ -13,6 +13,6 @@ const ENS = nums([
   40.39, 40.95, 45.14, 49.51, 45.65,
   46.43, 45.66, 46.78,
 ]);
-const a = ENS.MACD(12, 26, 9);
-console.log(a.MACD);
+
+console.log(ENS.MA(9));
 
