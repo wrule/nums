@@ -129,15 +129,15 @@ class Nums {
     slow: number,
     size: number,
   ) {
-    const fastNums = this.MA(fast).nums;
-    const slowNums = this.MA(slow).nums;
-    const DIFNums = fastNums.map((num, index) => num - slowNums[index]);
-    const DEANums = new Nums(DIFNums).MA(size).nums;
-    const MACDNums = DIFNums.map((num, index) => num - DEANums[index]);
+    const fastMA = this.MA(fast).nums;
+    const slowMA = this.MA(slow).nums;
+    const dif = fastMA.map((num, index) => num - slowMA[index]);
+    const dea = nums(dif).MA(size).nums;
+    const macd = dif.map((num, index) => num - dea[index]);
     return {
-      DIF: new Nums(DIFNums),
-      DEA: new Nums(DEANums),
-      MACD: new Nums(MACDNums),
+      DIF: nums(dif),
+      DEA: nums(dea),
+      MACD: nums(macd),
     };
   }
 
