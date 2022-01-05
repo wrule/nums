@@ -286,10 +286,7 @@ class Nums {
     return { K, D, J };
   }
 
-  public RSI(
-    size: number,
-    RMAInit?: number,
-  ) {
+  public RSI(size: number) {
     const nsize = this.normalSize(size);
     const riseData = Array(this.Length).fill(0);
     const fallData = Array(this.Length).fill(0);
@@ -301,8 +298,8 @@ class Nums {
         fallData[i] = -diff;
       }
     }
-    const riseNums = nums(riseData).RMA(nsize, RMAInit);
-    const fallNums = nums(fallData).RMA(nsize, RMAInit);
+    const riseNums = nums(riseData).RMA(nsize);
+    const fallNums = nums(fallData).RMA(nsize);
     const result = riseNums.nums.map((rise, index) => {
       const fall = fallNums.nums[index];
       return rise / ((rise + fall) || 1) * 100;
@@ -312,10 +309,9 @@ class Nums {
 
   public SRSI(
     size: number,
-    RMAInit?: number,
     RSISize?: number,
   ) {
-    const RSINums = this.RSI(RSISize != null ? RSISize : size, RMAInit);
+    const RSINums = this.RSI(RSISize != null ? RSISize : size);
     return RSINums.RSV_FLAT(size);
   }
 
