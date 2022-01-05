@@ -27,10 +27,6 @@ class Nums {
     return nums(this.nums.slice(start, end));
   }
 
-  public concat(nums: Nums) {
-    return new Nums(this.nums.concat(nums.nums));
-  }
-
   public normalSize(
     size: number,
   ) {
@@ -101,14 +97,13 @@ class Nums {
     const fastEMA = this.EMA(fast).nums;
     const slowEMA = this.EMA(slow).nums;
     const dif = fastEMA.map((num, index) => num - slowEMA[index]);
-    const difNums = nums(dif);
-    const dea = difNums.slice(0, slow - 1).
-      concat(difNums.slice(slow - 1).EMA(size)).nums;
+    const dea = nums(dif).slice(slow - 1).EMA(size).nums;
+    dea.unshift(...dif.slice(0, slow - 1));
     const macd = dif.map((num, index) => num - dea[index]);
     return {
-      DIF: difNums,
-      DEA: new Nums(dea),
-      MACD: new Nums(macd),
+      DIF: nums(dif),
+      DEA: nums(dea),
+      MACD: nums(macd),
     };
   }
 
