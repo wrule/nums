@@ -107,6 +107,23 @@ class Nums {
     };
   }
 
+  public MACD_EMA(
+    fast: number,
+    slow: number,
+    size: number,
+  ) {
+    const fastEMA = this.EMA(fast).nums;
+    const slowEMA = this.EMA(slow).nums;
+    const dif = fastEMA.map((num, index) => num - slowEMA[index]);
+    const dea = nums(dif).EMA(size).nums;
+    const macd = dif.map((num, index) => num - dea[index]);
+    return {
+      DIF: nums(dif),
+      DEA: nums(dea),
+      MACD: nums(macd),
+    };
+  }
+
   public MACD_MA(
     fast: number,
     slow: number,
