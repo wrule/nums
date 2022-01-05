@@ -34,7 +34,7 @@ class Nums {
   }
 
   /**
-   * 移动平均
+   * 移动平均（与TradingView一致）
    * @param size 尺度
    * @returns 结果Nums
    */
@@ -52,7 +52,7 @@ class Nums {
   }
 
   /**
-   * 指数移动平均
+   * 指数移动平均（与TradingView一致）
    * @param size 尺度
    * @returns 结果Nums
    */
