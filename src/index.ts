@@ -23,6 +23,14 @@ class Nums {
     return this.sum() / (this.Length || 1);
   }
 
+  public slice(start?: number, end?: number) {
+    return nums(this.nums.slice(start, end));
+  }
+
+  public concat(nums: Nums) {
+    return new Nums(this.nums.concat(nums.nums));
+  }
+
   public normalSize(
     size: number,
   ) {
@@ -93,11 +101,12 @@ class Nums {
     const fastEMA = this.EMA(fast).nums;
     const slowEMA = this.EMA(slow).nums;
     const dif = fastEMA.map((num, index) => num - slowEMA[index]);
-    // const dea = new Nums(dif).EMA(size, 2, slow - 1).nums;
-    const dea = new Nums(dif).EMA(size).nums;
+    const difNums = nums(dif);
+    const dea = difNums.slice(0, slow - 1).
+      concat(difNums.slice(slow - 1).EMA(size)).nums;
     const macd = dif.map((num, index) => num - dea[index]);
     return {
-      DIF: new Nums(dif),
+      DIF: difNums,
       DEA: new Nums(dea),
       MACD: new Nums(macd),
     };
