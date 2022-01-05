@@ -69,6 +69,11 @@ class Nums {
     return new Nums(result);
   }
 
+  /**
+   * 指数加权移动平均（与TradingView一致）
+   * @param size 尺度
+   * @returns 结果Nums
+   */
   public RMA(size: number) {
     const nsize = this.normalSize(size);
     const result = Array(this.Length).fill(0);
