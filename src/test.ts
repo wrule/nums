@@ -14,4 +14,4 @@ const ENS = nums([
   46.43, 45.66, 46.78,
 ]);
 
-console.log(ENS.RMA(10));
+console.log(ENS.RMA(11));
