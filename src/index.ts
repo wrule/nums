@@ -90,15 +90,16 @@ class Nums {
     slow: number,
     size: number,
   ) {
-    const fastNums = this.EMA(fast).nums;
-    const slowNums = this.EMA(slow).nums;
-    const DIFNums = fastNums.map((num, index) => num - slowNums[index]);
-    const DEANums = new Nums(DIFNums).EMA(size, 2, slow - 1).nums;
-    const MACDNums = DIFNums.map((num, index) => num - DEANums[index]);
+    const fastEMA = this.EMA(fast).nums;
+    const slowEMA = this.EMA(slow).nums;
+    const dif = fastEMA.map((num, index) => num - slowEMA[index]);
+    // const dea = new Nums(dif).EMA(size, 2, slow - 1).nums;
+    const dea = new Nums(dif).EMA(size).nums;
+    const macd = dif.map((num, index) => num - dea[index]);
     return {
-      DIF: new Nums(DIFNums),
-      DEA: new Nums(DEANums),
-      MACD: new Nums(MACDNums),
+      DIF: new Nums(dif),
+      DEA: new Nums(dea),
+      MACD: new Nums(macd),
     };
   }
 
