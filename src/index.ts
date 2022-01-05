@@ -88,12 +88,12 @@ class Nums {
   public MACD(
     fast: number,
     slow: number,
-    size: number,
+    smooth: number,
   ) {
     const fastEMA = this.EMA(fast).nums;
     const slowEMA = this.EMA(slow).nums;
     const dif = fastEMA.map((num, index) => num - slowEMA[index]);
-    const dea = nums(dif).slice(slow - 1).EMA(size).nums;
+    const dea = nums(dif).slice(slow - 1).EMA(smooth).nums;
     dea.unshift(...dif.slice(0, slow - 1));
     const macd = dif.map((num, index) => num - dea[index]);
     return {
@@ -106,12 +106,12 @@ class Nums {
   public MACD_EMA(
     fast: number,
     slow: number,
-    size: number,
+    smooth: number,
   ) {
     const fastEMA = this.EMA(fast).nums;
     const slowEMA = this.EMA(slow).nums;
     const dif = fastEMA.map((num, index) => num - slowEMA[index]);
-    const dea = nums(dif).EMA(size).nums;
+    const dea = nums(dif).EMA(smooth).nums;
     const macd = dif.map((num, index) => num - dea[index]);
     return {
       DIF: nums(dif),
@@ -123,12 +123,12 @@ class Nums {
   public MACD_MA(
     fast: number,
     slow: number,
-    size: number,
+    smooth: number,
   ) {
     const fastMA = this.MA(fast).nums;
     const slowMA = this.MA(slow).nums;
     const dif = fastMA.map((num, index) => num - slowMA[index]);
-    const dea = nums(dif).MA(size).nums;
+    const dea = nums(dif).MA(smooth).nums;
     const macd = dif.map((num, index) => num - dea[index]);
     return {
       DIF: nums(dif),
