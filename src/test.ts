@@ -14,5 +14,5 @@ const ENS = nums([
   46.43, 45.66, 46.78,
 ]);
 
-console.log(ENS.EMA(9));
+console.log(ENS.MACD(4, 15, 9).MACD);
 
