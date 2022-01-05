@@ -50,21 +50,15 @@ class Nums {
   public EMA(
     size: number,
     smooth: number = 2,
-    skip: number = 0,
   ) {
     const nsize = this.normalSize(size);
     const result = Array(this.Length).fill(0);
     let prevEMA = this.nums[0];
     this.nums.forEach((num, index) => {
-      if (index >= skip) {
-        const nindex = index - skip;
-        const weight = nindex >= nsize ? smooth / (nsize + 1) : 1 / (nindex + 1);
-        const newEMA = num * weight + prevEMA * (1 - weight);
-        result[index] = newEMA;
-        prevEMA = newEMA;
-      } else {
-        result[index] = num;
-      }
+      const weight = index >= nsize ? smooth / (nsize + 1) : 1 / (index + 1);
+      const newEMA = num * weight + prevEMA * (1 - weight);
+      result[index] = newEMA;
+      prevEMA = newEMA;
     });
     return new Nums(result);
   }
