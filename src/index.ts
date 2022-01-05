@@ -29,17 +29,19 @@ class Nums {
     return size < 1 ? 1 : Math.floor(size);
   }
 
+  /**
+   * 移动平均
+   * @param size 尺度
+   * @returns 结果Nums
+   */
   public MA(size: number) {
     const nsize = this.normalSize(size);
     const result = Array(this.Length).fill(0);
     let sum = 0;
     this.nums.forEach((num, index) => {
-      const discardIndex = index - nsize;
-      const length = index < nsize - 1 ? index + 1 : nsize;
+      const length = index >= nsize - 1 ? nsize : index + 1;
+      sum -= this.nums[index - nsize] || 0;
       sum += num;
-      if (discardIndex >= 0) {
-        sum -= this.nums[discardIndex];
-      }
       result[index] = sum / length;
     });
     return nums(result);
