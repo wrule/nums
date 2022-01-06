@@ -317,6 +317,31 @@ class Nums {
     return nums(result);
   }
 
+  /**
+   * 相对强弱（纯RMA）
+   * @param size 尺度
+   * @returns 结果Nums
+   */
+  public RSI_RMA(size: number) {
+    const riseData = Array(this.Length).fill(0);
+    const fallData = Array(this.Length).fill(0);
+    for (let i = 1; i < this.Length; ++i) {
+      const diff = this.nums[i] - this.nums[i - 1];
+      if (diff > 0) {
+        riseData[i] = diff;
+      } else {
+        fallData[i] = -diff;
+      }
+    }
+    const riseNums = nums(riseData).RMA(size);
+    const fallNums = nums(fallData).RMA(size);
+    const result = riseNums.nums.map((rise, index) => {
+      const fall = fallNums.nums[index];
+      return rise / ((rise + fall) || 1) * 100;
+    });
+    return nums(result);
+  }
+
   public SRSI(
     size: number,
     RSISize?: number,
