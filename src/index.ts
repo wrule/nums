@@ -342,7 +342,7 @@ class Nums {
     return nums(result);
   }
 
-  public SRSI(
+  public StochRSI(
     size: number,
     RSISize?: number,
   ) {
