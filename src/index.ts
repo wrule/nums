@@ -27,6 +27,10 @@ class Nums {
     return nums(this.nums.slice(start, end));
   }
 
+  public unshift(...items: number[]) {
+    return this.nums.unshift(...items);
+  }
+
   public normalSize(
     size: number,
   ) {
@@ -287,7 +291,6 @@ class Nums {
   }
 
   public RSI(size: number) {
-    const nsize = this.normalSize(size);
     const riseData = Array(this.Length).fill(0);
     const fallData = Array(this.Length).fill(0);
     for (let i = 1; i < this.Length; ++i) {
@@ -298,8 +301,10 @@ class Nums {
         fallData[i] = -diff;
       }
     }
-    const riseNums = nums(riseData).RMA(nsize);
-    const fallNums = nums(fallData).RMA(nsize);
+    const riseNums = nums(riseData).slice(1).RMA(size);
+    riseNums.unshift(...(riseData[0] != null ? [riseData[0]] : []));
+    const fallNums = nums(fallData).slice(1).RMA(size);
+    fallNums.unshift(...(fallData[0] != null ? [fallData[0]] : []));
     const result = riseNums.nums.map((rise, index) => {
       const fall = fallNums.nums[index];
       return rise / ((rise + fall) || 1) * 100;
