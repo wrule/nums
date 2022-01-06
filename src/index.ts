@@ -290,6 +290,11 @@ class Nums {
     return { K, D, J };
   }
 
+  /**
+   * 相对强弱（与TradingView一致）
+   * @param size 尺度
+   * @returns 结果Nums
+   */
   public RSI(size: number) {
     const riseData = Array(this.Length).fill(0);
     const fallData = Array(this.Length).fill(0);
