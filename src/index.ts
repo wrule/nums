@@ -357,8 +357,12 @@ class Nums {
       .slice(RSISize)
       .RSV_FLAT(StochSize)
       .leftPad(Array(RSISize).fill(0));
-    const K = stochNums.MA(KSize);
-    const D = K.MA(DSize);
+    const K = stochNums.slice(RSISize + 1)
+      .MA(KSize)
+      .leftPad(stochNums.nums.slice(0, RSISize + 1));
+    const D = K.slice(RSISize + KSize)
+      .MA(DSize)
+      .leftPad(K.nums.slice(0, RSISize + KSize));
     return { K, D };
   }
 
