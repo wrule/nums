@@ -393,6 +393,27 @@ class Nums {
     const D = K.MA(DSize);
     return { K, D };
   }
+
+  /**
+   * 随机相对强弱（纯净版，KDJ）
+   * @param RSISize RSI尺度
+   * @param StochSize 随机尺度
+   * @param KSize K尺度
+   * @param DSize D尺度
+   * @returns K，D，J
+   */
+   public StochRSI_PURE_KDJ(
+    RSISize: number,
+    StochSize: number,
+    KSize: number,
+    DSize: number,
+  ) {
+    const stochNums = this.RSI(RSISize).RSV_FLAT(StochSize);
+    const K = stochNums.MA(KSize);
+    const D = K.MA(DSize);
+    const J = nums(K.nums.map((num, index) => num * 3 - D.nums[index] * 2));
+    return { K, D, J };
+  }
 }
 
 export
