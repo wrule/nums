@@ -31,6 +31,11 @@ class Nums {
     return this.nums.unshift(...items);
   }
 
+  public leftPad(nums: number[]) {
+    this.unshift(...nums);
+    return this;
+  }
+
   public normalSize(
     size: number,
   ) {
@@ -348,8 +353,10 @@ class Nums {
     KSize: number,
     DSize: number,
   ) {
-    const stochNums = this.RSI(RSISize).slice(RSISize).RSV_FLAT(StochSize);
-    stochNums.unshift(...Array(RSISize).fill(0));
+    const stochNums = this.RSI(RSISize)
+      .slice(RSISize)
+      .RSV_FLAT(StochSize)
+      .leftPad(Array(RSISize).fill(0));
     const K = stochNums.MA(KSize);
     const D = K.MA(DSize);
     return { K, D };
