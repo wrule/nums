@@ -343,11 +343,15 @@ class Nums {
   }
 
   public StochRSI(
-    size: number,
-    RSISize?: number,
+    RSISize: number,
+    StochSize: number,
+    KSize: number,
+    DSize: number,
   ) {
-    const RSINums = this.RSI(RSISize != null ? RSISize : size);
-    return RSINums.RSV_FLAT(size);
+    const stochNums = this.RSI(RSISize).RSV_FLAT(StochSize);
+    const K = stochNums.MA(KSize);
+    const D = K.MA(DSize);
+    return { K, D };
   }
 
   // public ROC() {
