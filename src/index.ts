@@ -375,6 +375,34 @@ class Nums {
   }
 
   /**
+   * 随机相对强弱（与TradingView一致，KDJ）
+   * @param RSISize RSI尺度
+   * @param StochSize 随机尺度
+   * @param KSize K尺度
+   * @param DSize D尺度
+   * @returns K，D，J
+   */
+  public StochRSI_KDJ(
+    RSISize: number,
+    StochSize: number,
+    KSize: number,
+    DSize: number,
+  ) {
+    const stochNums = this.RSI(RSISize)
+      .slice(RSISize)
+      .RSV_FLAT(StochSize)
+      .leftPad(Array(RSISize).fill(0));
+    const K = stochNums.slice(RSISize + 1)
+      .MA(KSize)
+      .leftPad(stochNums.nums.slice(0, RSISize + 1));
+    const D = K.slice(RSISize + KSize)
+      .MA(DSize)
+      .leftPad(K.nums.slice(0, RSISize + KSize));
+    const J = nums(K.nums.map((num, index) => num * 3 - D.nums[index] * 2));
+    return { K, D, J };
+  }
+
+  /**
    * 随机相对强弱（纯净版）
    * @param RSISize RSI尺度
    * @param StochSize 随机尺度
