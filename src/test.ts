@@ -14,5 +14,5 @@ const ENS = nums([
   46.43, 45.66, 46.78,
 ]);
 
-const a = ENS.StochRSI(4, 2, 3, 2);
+const a = ENS.StochRSI(14, 25, 7, 3);
 console.log(a.D);
