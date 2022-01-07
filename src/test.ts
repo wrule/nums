@@ -14,4 +14,4 @@ const ENS = nums([
   46.43, 45.66, 46.78,
 ]);
 
-console.log(ENS.RSI(9));
+console.log(ENS.RSI(2).RSV_FLAT(15));
