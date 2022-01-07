@@ -14,6 +14,5 @@ const ENS = nums([
   46.43, 45.66, 46.78,
 ]);
 
-// console.log(ENS.RSI(2).RSV_FLAT(15).MA(3));
-
-console.log(ENS.StochRSI(14, 14, 3, 3).K);
+const a = ENS.StochRSI(14, 14, 3, 3);
+console.log(a.D);

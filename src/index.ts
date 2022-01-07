@@ -348,7 +348,8 @@ class Nums {
     KSize: number,
     DSize: number,
   ) {
-    const stochNums = this.RSI(RSISize).RSV_FLAT(StochSize);
+    const stochNums = this.RSI(RSISize).slice(RSISize).RSV_FLAT(StochSize);
+    stochNums.unshift(...Array(RSISize).fill(0));
     const K = stochNums.MA(KSize);
     const D = K.MA(DSize);
     return { K, D };
