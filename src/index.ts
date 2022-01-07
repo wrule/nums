@@ -402,7 +402,7 @@ class Nums {
    * @param DSize D尺度
    * @returns K，D，J
    */
-   public StochRSI_PURE_KDJ(
+  public StochRSI_PURE_KDJ(
     RSISize: number,
     StochSize: number,
     KSize: number,
