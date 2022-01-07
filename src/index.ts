@@ -347,6 +347,14 @@ class Nums {
     return nums(result);
   }
 
+  /**
+   * 随机相对强弱（与TradingView一致）
+   * @param RSISize RSI尺度
+   * @param StochSize 随机尺度
+   * @param KSize K尺度
+   * @param DSize D尺度
+   * @returns K，D
+   */
   public StochRSI(
     RSISize: number,
     StochSize: number,
@@ -365,10 +373,6 @@ class Nums {
       .leftPad(K.nums.slice(0, RSISize + KSize));
     return { K, D };
   }
-
-  // public ROC() {
-
-  // }
 }
 
 export
