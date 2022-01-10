@@ -6,3 +6,8 @@
   version "17.0.5"
   resolved "http://npm.perfma-inc.net:80/@types%2fnode/-/node-17.0.5.tgz#57ca67ec4e57ad9e4ef5a6bab48a15387a1c83e0"
   integrity sha512-w3mrvNXLeDYV1GKTZorGJQivK6XLCoGwpnyJFbJVK/aTBQUxOCaa/GlFAAN3OTDFcb7h5tiFG+YXCO2By+riZw==
+
+papaparse@^5.3.1:
+  version "5.3.1"
+  resolved "http://npm.perfma-inc.net:80/papaparse/-/papaparse-5.3.1.tgz#770b7a9124d821d4b2132132b7bd7dce7194b5b1"
+  integrity sha1-dwt6kSTYIdSyEyEyt719znGUtbE=
