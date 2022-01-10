@@ -77,5 +77,5 @@ const close = nums(csvData.data.map((item: any) => item.close));
 // const a = close.SKDJ(low, high, 9, 6, 6);
 // console.log(a.D);
 
-const a = close.SKDJ(low, high, 9, 6, 6, 6);
+const a = close.SKDJ(low, high, 5, 7, 7, 7);
 console.log(a.D);
