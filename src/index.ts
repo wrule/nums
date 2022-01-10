@@ -207,8 +207,8 @@ class Nums {
 
   /**
    * 未成熟随机值（扁平）
-   * @param size 
-   * @returns 
+   * @param size 尺度
+   * @returns 结果Nums
    */
   public RSV_FLAT(
     size: number,
