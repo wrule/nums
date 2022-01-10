@@ -170,7 +170,7 @@ class Nums {
   }
 
   /**
-   * 未成熟随机值
+   * 未成熟随机
    * @param minNums 
    * @param maxNums 
    * @param size 
@@ -206,7 +206,7 @@ class Nums {
   }
 
   /**
-   * 未成熟随机值（扁平）
+   * 未成熟随机（扁平）
    * @param size 尺度
    * @returns 结果Nums
    */
