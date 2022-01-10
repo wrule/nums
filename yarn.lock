@@ -2,10 +2,22 @@
 # yarn lockfile v1
 
 
+"@types/node@*":
+  version "17.0.8"
+  resolved "http://npm.perfma-inc.net:80/@types%2fnode/-/node-17.0.8.tgz#50d680c8a8a78fe30abe6906453b21ad8ab0ad7b"
+  integrity sha512-YofkM6fGv4gDJq78g4j0mMuGMkZVxZDgtU0JRdx6FgiJDG+0fY0GKVolOV8WqVmEhLCXkQRjwDdKyPxJp/uucg==
+
 "@types/node@^17.0.5":
   version "17.0.5"
   resolved "http://npm.perfma-inc.net:80/@types%2fnode/-/node-17.0.5.tgz#57ca67ec4e57ad9e4ef5a6bab48a15387a1c83e0"
   integrity sha512-w3mrvNXLeDYV1GKTZorGJQivK6XLCoGwpnyJFbJVK/aTBQUxOCaa/GlFAAN3OTDFcb7h5tiFG+YXCO2By+riZw==
+
+"@types/papaparse@^5.3.1":
+  version "5.3.1"
+  resolved "http://npm.perfma-inc.net:80/@types%2fpapaparse/-/papaparse-5.3.1.tgz#fb5c613a64473c33b08fb9bc2a5ddbf25e54784e"
+  integrity sha1-+1xhOmRHPDOwj7m8Kl3b8l5UeE4=
+  dependencies:
+    "@types/node" "*"
 
 papaparse@^5.3.1:
   version "5.3.1"

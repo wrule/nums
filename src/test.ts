@@ -16,3 +16,7 @@ const ENS = nums([
 
 const a = ENS.StochRSI(14, 25, 7, 3);
 console.log(a.D);
+
+import Papa from 'papaparse';
+
+const b = Papa.parse(``);
