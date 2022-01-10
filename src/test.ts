@@ -74,4 +74,5 @@ const low = nums(csvData.data.map((item: any) => item.low));
 const high = nums(csvData.data.map((item: any) => item.high));
 const close = nums(csvData.data.map((item: any) => item.close));
 
-console.log(close.EMA(9));
+const a = close.KD(low, high, 4, 2, 3);
+console.log(a.D);
