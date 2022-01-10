@@ -208,9 +208,7 @@ class Nums {
    * @param size 尺度
    * @returns 结果Nums
    */
-  public RSV_FLAT(
-    size: number,
-  ) {
+  public RSV_FLAT(size: number) {
     const nsize = this.normalSize(size);
     const result = Array(this.Length).fill(0);
     this.nums.forEach((num, index) => {
