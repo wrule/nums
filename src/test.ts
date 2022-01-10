@@ -70,6 +70,8 @@ time,open,high,low,close,%K,%D
   dynamicTyping: true,
 });
 
-const b = nums(csvData.data.map((item: any) => item.close));
-const c = b.StochRSI(14, 25, 7, 3);
-console.log(c.D);
+const low = nums(csvData.data.map((item: any) => item.low));
+const high = nums(csvData.data.map((item: any) => item.high));
+const close = nums(csvData.data.map((item: any) => item.close));
+
+console.log(close.EMA(9));
