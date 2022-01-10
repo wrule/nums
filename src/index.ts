@@ -297,12 +297,17 @@ class Nums {
     minNums: Nums,
     maxNums: Nums,
     RSVSize: number,
+    EMASize: number,
     KSize: number,
     DSize: number,
   ) {
     const RSVNums = this.RSV(minNums, maxNums, RSVSize);
-    const K = RSVNums.EMA(KSize);
-    const D = K.MA(DSize);
+    const EMARSVNums = RSVNums.slice(RSVSize - 1).EMA(EMASize);
+    EMARSVNums.unshift(...RSVNums.slice(0, RSVSize - 1).nums);
+    const K = EMARSVNums.slice(RSVSize + EMASize - 2).EMA(KSize);
+    K.unshift(...EMARSVNums.slice(0, RSVSize + EMASize - 2).nums);
+    const D = K.slice(RSVSize + EMASize + KSize - 3).MA(DSize);
+    D.unshift(...K.slice(0, RSVSize + EMASize + KSize - 3).nums);
     const J = nums(
       K.nums.map((num, index) => num * 3 - D.nums[index] * 2)
     );
