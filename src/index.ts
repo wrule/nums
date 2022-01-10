@@ -171,10 +171,10 @@ class Nums {
 
   /**
    * 未成熟随机
-   * @param minNums 
-   * @param maxNums 
-   * @param size 
-   * @returns 
+   * @param minNums 最小Nums
+   * @param maxNums 最大Nums
+   * @param size 尺度
+   * @returns 结果Nums
    */
   public RSV(
     minNums: Nums,
