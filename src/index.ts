@@ -191,13 +191,11 @@ class Nums {
       let min = minNums.nums[startIndex];
       let max = maxNums.nums[startIndex];
       for (let i = startIndex + 1; i < index + 1; ++i) {
-        const currentMinNum = minNums.nums[i];
-        const currentMaxNum = maxNums.nums[i];
-        if (currentMinNum < min) {
-          min = currentMinNum;
+        if (minNums.nums[i] < min) {
+          min = minNums.nums[i];
         }
-        if (currentMaxNum > max) {
-          max = currentMaxNum;
+        if (maxNums.nums[i] > max) {
+          max = maxNums.nums[i];
         }
       }
       result[index] = (num - min) / ((max - min) || 1) * 100;
