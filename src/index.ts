@@ -255,6 +255,15 @@ class Nums {
     return { K, D };
   }
 
+  /**
+   * KDJ指标
+   * @param minNums 最小Nums
+   * @param maxNums 最大Nums
+   * @param RSVSize RSV尺度
+   * @param KSize K尺度
+   * @param DSize D尺度
+   * @returns K，D，J
+   */
   public KDJ(
     minNums: Nums,
     maxNums: Nums,
