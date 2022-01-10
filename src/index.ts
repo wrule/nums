@@ -293,7 +293,8 @@ class Nums {
   ) {
     let { D } = this.KDJ(minNums, maxNums, RSVSize, KSize, DSize);
     const K = D;
-    D = K.EMA(DSize, 100, 1 / DSize);
+    // D = K.EMA(DSize, 100, 1 / DSize);
+    D = K.MA(DSize);
     const J = nums(
       K.nums.map((num, index) => num * 3 - D.nums[index] * 2)
     );
