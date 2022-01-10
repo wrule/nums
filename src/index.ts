@@ -233,12 +233,12 @@ class Nums {
 
   /**
    * KD指标
-   * @param minNums 
-   * @param maxNums 
-   * @param RSVSize 
-   * @param KSize 
-   * @param DSize 
-   * @returns 
+   * @param minNums 最小Nums
+   * @param maxNums 最大Nums
+   * @param RSVSize RSV尺度
+   * @param KSize K尺度
+   * @param DSize D尺度
+   * @returns K，D
    */
   public KD(
     minNums: Nums,
@@ -248,8 +248,10 @@ class Nums {
     DSize: number = 3,
   ) {
     const RSVNums = this.RSV(minNums, maxNums, RSVSize);
-    const K = RSVNums.EMA(KSize, 100, 1 / DSize);
-    const D = K.EMA(DSize, 100, 1 / DSize);
+    // const K = RSVNums.EMA(KSize, 100, 1 / DSize);
+    // const D = K.EMA(DSize, 100, 1 / DSize);
+    const K = RSVNums.MA(KSize);
+    const D = K.MA(DSize);
     return { K, D };
   }
 
