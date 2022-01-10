@@ -284,6 +284,15 @@ class Nums {
     return { K, D, J };
   }
 
+  /**
+   * SKDJ指标
+   * @param minNums 最小Nums
+   * @param maxNums 最大Nums
+   * @param RSVSize RSV尺度
+   * @param KSize K尺度
+   * @param DSize D尺度
+   * @returns K，D，J
+   */
   public SKDJ(
     minNums: Nums,
     maxNums: Nums,
@@ -291,10 +300,9 @@ class Nums {
     KSize: number,
     DSize: number,
   ) {
-    let { D } = this.KDJ(minNums, maxNums, RSVSize, KSize, DSize);
-    const K = D;
-    // D = K.EMA(DSize, 100, 1 / DSize);
-    D = K.MA(DSize);
+    const RSVNums = this.RSV(minNums, maxNums, RSVSize);
+    const K = RSVNums.EMA(KSize);
+    const D = K.MA(DSize);
     const J = nums(
       K.nums.map((num, index) => num * 3 - D.nums[index] * 2)
     );
