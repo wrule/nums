@@ -14,9 +14,6 @@ const ENS = nums([
   46.43, 45.66, 46.78,
 ]);
 
-const a = ENS.StochRSI(14, 25, 7, 3);
-// console.log(a.D);
-
 import Papa from 'papaparse';
 
 const csvData = Papa.parse(`
@@ -88,4 +85,9 @@ time,open,high,low,close,%K,%D
   dynamicTyping: true,
 });
 
-console.log(csvData.data);
+const a = ENS.StochRSI(14, 25, 7, 3);
+console.log(a.D);
+// console.log(csvData.data);
+const b = nums(csvData.data.map((item: any) => item.close));
+const c = b.StochRSI(14, 25, 7, 3);
+console.log(c.D);
