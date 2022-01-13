@@ -23,6 +23,33 @@ class Nums {
     return this.sum() / (this.Length || 1);
   }
 
+  public min() {
+    return Math.min(...this.nums);
+  }
+
+  public max() {
+    return Math.max(...this.nums);
+  }
+
+  /**
+   * 数组求方差
+   * @returns 方差
+   */
+   public variance() {
+    const avg = this.avg();
+    let varianceSum = 0;
+    this.nums.forEach((num) => varianceSum += Math.pow(num - avg, 2));
+    return varianceSum / this.nums.length;
+  }
+
+  /**
+   * 数组求标准差
+   * @returns 标准差
+   */
+  public standardDeviation() {
+    return Math.sqrt(this.variance());
+  }
+
   public slice(start?: number, end?: number) {
     return nums(this.nums.slice(start, end));
   }
